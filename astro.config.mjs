@@ -1,3 +1,5 @@
+// @ts-check
+
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
@@ -56,6 +58,38 @@ export default defineConfig({
      * true - listen on all addresses, including LAN and public addresses
      * [custom-address] - expose on a network IP address at [custom-address] (ex: 192.168.0.1)
      */
+
     port: 3000 /* The port the server should listen on. If the given port is already in use, Astro will automatically try the next available port. */,
+  },
+
+  // Markdown Options
+  markdown: {
+    drafts: false /* Whether to include draft posts in the final build. */,
+    mode: "mdx" /* Control wheater to allow components inside markdown files ('mdx') or not ('md'). */,
+
+    shikiConfig: {},
+
+    syntaxHighlight: "shiki",
+    /*
+     * Which syntax highlighter to use, if any.
+     *
+     * 'shiki' - use the Shiki highlighter
+     * 'prism' - use the Prism highlighter
+     * false - do not apply syntax highlighting.
+     */
+
+    // The following remark plugins are used by Astro to provide support for GitHub-flavored Markdown support, Footnotes syntax, Smartypants. You must explicitly add these plugins to the remarkPlugins config array or omit the remarkPlugins config, if desired.
+
+    remarkPlugins: ["remark-gfm", "remark-smartypants"],
+    /*
+     * Pass remark plugins to customize how the Markdown is built
+     *
+     * The above remark plugins are used by Astro to provide support for GitHub-flavored Markdown support, Footnotes syntax, Smartypants.
+     *
+     * If you want to keep the default features, you must explicitly add these plugins to the remarkPlugins config array if the config is set.
+     */
+
+    rehypePlugins:
+      [] /* Pass rehype plugins to customize how the Markdown is built*/,
   },
 });
