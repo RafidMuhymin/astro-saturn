@@ -25,4 +25,15 @@ export default defineConfig({
    * 'never' - Never match URLs that include a trailing slash (ex: “/foo”)
    * 'ignore' - Match URLs regardless of whether a trailing ”/” exists
    */
+
+  // Build Options
+  build: {
+    format: "directory",
+    /*
+     * Control the output file format of each page.
+     *
+     * If ‘file’, Astro will generate an HTML file (ex: “/foo.html”) for each page.
+     * If ‘directory’, Astro will generate a directory with a nested index.html file (ex: “/foo/index.html”) for each page.
+     */
+  },
 });
