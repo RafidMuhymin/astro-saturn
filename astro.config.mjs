@@ -67,7 +67,14 @@ export default defineConfig({
     drafts: false /* Whether to include draft posts in the final build. */,
     mode: "mdx" /* Control wheater to allow components inside markdown files ('mdx') or not ('md'). */,
 
-    shikiConfig: {},
+    // Shiki Options
+    shikiConfig: {
+      theme:
+        "dracula" /* The theme to use to highlight the code. Choose from Shiki's built-in themes or add your own. Check https://github.com/shikijs/shiki/blob/main/docs/themes.md */,
+      langs:
+        [] /* Add custom languages. Check https://github.com/shikijs/shiki/blob/main/docs/languages.md */,
+      wrap: true /* Whether to enable word wrap to prevent horizontal scrolling */,
+    },
 
     syntaxHighlight: "shiki",
     /*
