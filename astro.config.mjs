@@ -31,7 +31,9 @@ export default defineConfig({
   integrations:
     [] /* The Astro integrations you want to use. Check https://astro.build/integrations/ */,
 
-  // vite: {}, /* The config options to pass to Vite. Check https://vitejs.dev/config/ */
+  vite: {} /* The config options to pass to Vite. Check https://vitejs.dev/config/ */,
+
+  // adapter: ((await import("@astrojs/node")).default)() /* Add an adapter to build for SSR. */
 
   // Build Options
   build: {
@@ -102,6 +104,12 @@ export default defineConfig({
      */
 
     rehypePlugins:
-      [] /* Pass rehype plugins to customize how the Markdown is built*/,
+      [] /* Pass rehype plugins to customize how the Markdown is built */,
+  },
+
+  // Experimental Options
+  experimental: {
+    ssr: false /* Whether to enable experimental SSR */,
+    integrations: false /* Whether to enable experimental integrations. Applicable for non-core integrations only */,
   },
 });
