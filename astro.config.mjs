@@ -19,7 +19,7 @@ export default defineConfig({
 
   // base: "/" /* The base path the site will be deployed to. */,
 
-  trailingSlash: "always",
+  trailingSlash: "ignore",
   /*
    * Set the route matching behavior of the dev server. Choose from the following options:
    *
