@@ -1,0 +1,86 @@
+@use "poly-fluid-sizing";
+
+:root {
+  @include poly-fluid-sizing.poly-fluid-sizing(
+    "font-size",
+    (
+      320px: 11px,
+      576px: 13px,
+      768px: 15px,
+      992px: 17px,
+      1200px: 19px,
+      1440px: 21px,
+    )
+  );
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+a {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #0070f3;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  a {
+    font-size: inherit;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply my-5 mx-0;
+}
+
+p {
+  @apply my-3 mx-0;
+}
