@@ -1,5 +1,5 @@
 // @ts-check
-
+import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
@@ -28,8 +28,8 @@ export default defineConfig({
    * 'ignore' - Match URLs regardless of whether a trailing ”/” exists
    */
 
-  integrations:
-    [] /* The Astro integrations you want to use. Check https://astro.build/integrations/ */,
+  integrations: [tailwind({})],
+  // The Astro integrations you want to use. Check https://astro.build/integrations/
 
   vite: {} /* The config options to pass to Vite. Check https://vitejs.dev/config/ */,
 
