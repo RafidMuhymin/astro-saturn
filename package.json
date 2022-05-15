@@ -13,6 +13,7 @@
     "astro": "^1.0.0-beta.28"
   },
   "dependencies": {
+    "astro-fonts": "^0.2.6",
     "astro-spa": "^1.3.9",
     "poly-fluid-sizing": "^1.2.1"
   }

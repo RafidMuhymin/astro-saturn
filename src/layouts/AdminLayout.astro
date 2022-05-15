@@ -1,9 +1,25 @@
 ---
+import { Font } from "astro-fonts";
 import Head from "../components/Head.astro";
 ---
 
 <html>
   <Head />
+
+  <Font family="Roboto" weights={[400]} local />
+
+  <style
+    define:vars={{
+      "font-family": "Roboto",
+    }}
+  >
+    :root {
+      font-family: var(--font-family), ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji";
+    }
+  </style>
 
   <style
     lang="scss"
