@@ -1,26 +1,17 @@
 ---
-import Head from "../components/Head.astro";
+import AdminLayout from "./AdminLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<html>
-  <Head />
+<AdminLayout>
+  <Header>
+    <slot name="header" />
+  </Header>
 
-  <style
-    lang="scss"
-    set:html={(await import(`../styles/global.scss?v=${Math.random}`)).default}
-  />
+  <slot />
 
-  <body>
-    <Header>
-      <slot name="header" />
-    </Header>
-
-    <slot />
-
-    <Footer>
-      <slot name="footer" />
-    </Footer>
-  </body>
-</html>
+  <Footer>
+    <slot name="footer" />
+  </Footer>
+</AdminLayout>
