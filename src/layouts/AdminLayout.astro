@@ -1,0 +1,16 @@
+---
+import Head from "../components/Head.astro";
+---
+
+<html>
+  <Head />
+
+  <style
+    lang="scss"
+    set:html={(await import(`../styles/global.scss?v=${Math.random}`)).default}
+  />
+
+  <body>
+    <slot />
+  </body>
+</html>
