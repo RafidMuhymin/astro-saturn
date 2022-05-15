@@ -18,5 +18,17 @@
 
   <section id="spa">
     <h2>SPA</h2>
+
+    <button onclick="enableSpa()"> Enable SPA Mode </button>
+
+    <script is:inline>
+      window.enableSpa = async () => {
+        const response = await (await fetch("/api/spa")).json();
+
+        console.log({
+          response,
+        });
+      };
+    </script>
   </section>
 </section>

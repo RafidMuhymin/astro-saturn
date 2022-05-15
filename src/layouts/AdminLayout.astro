@@ -1,6 +1,8 @@
 ---
+import { Spa } from "astro-spa";
 import { Font } from "astro-fonts";
 import Head from "../components/Head.astro";
+import adminConfigs from "../data/adminConfigs.json";
 ---
 
 <html>
@@ -27,6 +29,13 @@ import Head from "../components/Head.astro";
   />
 
   <body>
-    <slot />
+
+  <a href="/">Home</a>
+
+  <slot />
+
+  {
+    adminConfigs.spa ? <Spa /> : <></>
+  }
   </body>
 </html>
