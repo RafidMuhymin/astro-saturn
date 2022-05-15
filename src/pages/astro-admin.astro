@@ -1,12 +1,12 @@
 ---
 import AdminLayout from "../layouts/AdminLayout.astro";
 import Sidebar from "../components/admin/Sidebar.astro";
-import AdminArea from "../components/admin/AdminArea.astro";
+import AdminPanel from "../components/admin/AdminPanel.astro";
 ---
 
 <AdminLayout>
-  <main class="max-w-[1440px] mx-auto">
+  <main class="max-w-[1440px] mx-auto flex">
     <Sidebar />
-    <AdminArea />
+    <AdminPanel />
   </main>
 </AdminLayout>
