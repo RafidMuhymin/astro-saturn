@@ -1,0 +1,24 @@
+---
+import styles from "../styles/global.scss";
+
+import Head from "../components/Head.astro";
+import Sidebar from "../components/admin/Sidebar.astro";
+import AdminArea from "../components/admin/AdminArea.astro";
+---
+
+<html>
+  <Head />
+
+  <body>
+    {/* prettier-ignore */}
+    <style
+      lang="scss"
+      set:html={(await import(`../styles/global.scss?v=${Math.random}`)).default}
+    />
+
+    <main class="max-w-[1440px] mx-auto">
+      <Sidebar />
+      <AdminArea />
+    </main>
+  </body>
+</html>
