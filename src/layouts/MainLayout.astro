@@ -1,0 +1,26 @@
+---
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html>
+  <Head />
+
+  <style
+    lang="scss"
+    set:html={(await import(`../styles/global.scss?v=${Math.random}`)).default}
+  />
+
+  <body>
+    <Header>
+      <slot name="header" />
+    </Header>
+
+    <slot />
+
+    <Footer>
+      <slot name="footer" />
+    </Footer>
+  </body>
+</html>
