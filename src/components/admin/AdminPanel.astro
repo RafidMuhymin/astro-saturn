@@ -25,9 +25,7 @@
       window.enableSpa = async () => {
         const response = await (await fetch("/api/spa")).json();
 
-        console.log({
-          response,
-        });
+        console.log(response);
       };
     </script>
   </section>

@@ -1,4 +1,8 @@
-import type { APIRoute } from "astro";
+import type { APIContext, EndpointOutput } from "astro";
+
+type APIRoute = (
+  context: APIContext
+) => EndpointOutput | Response | Promise<EndpointOutput | Response>;
 
 function streamTobuffer(stream): Promise<Buffer> {
   return new Promise((resolve, reject) => {
@@ -17,6 +21,8 @@ async function parseJSONRequestBody(requestBody) {
 
   return requestBodyJSON;
 }
+
+export const get: APIRoute = async () => ({ body: "" });
 
 export const post: APIRoute = async ({ params, request }) => {
   const requestBody = await parseJSONRequestBody(request.body);

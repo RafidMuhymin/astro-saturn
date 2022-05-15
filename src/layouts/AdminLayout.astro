@@ -1,14 +1,12 @@
 ---
+import "../styles/global.scss";
 import { Spa } from "astro-spa";
-import { Font } from "astro-fonts";
 import Head from "../components/Head.astro";
-import adminConfigs from "../data/adminConfigs.json";
+import { spa } from "../data/adminConfigs.json";
 ---
 
 <html>
   <Head />
-
-  <Font family="Montserrat" weights={[400]} local />
 
   <style
     define:vars={{
@@ -23,11 +21,6 @@ import adminConfigs from "../data/adminConfigs.json";
     }
   </style>
 
-  <style
-    lang="scss"
-    set:html={(await import(`../styles/global.scss?v=${Math.random}`)).default}
-  />
-
   <body>
 
   <a href="/">Home</a>
@@ -35,7 +28,7 @@ import adminConfigs from "../data/adminConfigs.json";
   <slot />
 
   {
-    adminConfigs.spa ? <Spa /> : <></>
+    spa ? <Spa /> : <></>
   }
   </body>
 </html>

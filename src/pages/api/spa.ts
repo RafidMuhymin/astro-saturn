@@ -1,5 +1,9 @@
 import * as fs from "node:fs";
-import type { APIRoute } from "astro";
+import type { APIContext, EndpointOutput } from "astro";
+
+type APIRoute = (
+  context: APIContext
+) => EndpointOutput | Response | Promise<EndpointOutput | Response>;
 
 export const get: APIRoute = async () => {
   try {
@@ -36,7 +40,7 @@ export const get: APIRoute = async () => {
         success: false,
       }),
     };
-    
+
     return response;
   }
 };
