@@ -25,13 +25,8 @@ import { spa } from "../data/adminConfigs.json";
   </style>
 
   <body>
+    <slot></slot>
 
-  <a href="/">Home</a>
-
-  <slot />
-
-  {
-    spa ? <Spa /> : <></>
-  }
+    {spa && <Spa />}
   </body>
 </html>

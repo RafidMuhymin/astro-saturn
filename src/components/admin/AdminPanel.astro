@@ -1,4 +1,7 @@
 ---
+import Label from "./Label.astro";
+
+const isInline = import.meta.env.DEV ? true : false;
 ---
 
 <section class="px-4 pb-4 w-[87.5%] bg-gray-100">
@@ -6,6 +9,16 @@
 
   <section id="typography">
     <h2>Typography</h2>
+
+    <form class="flex flex-col gap-3">
+      <Label label="System Font">
+        <input type="text" name="system-font" class="input-control" />
+      </Label>
+
+      <Label label="Google Font">
+        <input type="text" name="google-font" class="input-control" />
+      </Label>
+    </form>
   </section>
 
   <section id="astro-configs">
@@ -19,9 +32,9 @@
   <section id="spa">
     <h2>SPA</h2>
 
-    <button onclick="enableSpa()"> Enable SPA Mode </button>
+    <button onclick="enableSpa()"> Enable SPA Mode</button>
 
-    <script is:inline>
+    <script {isInline}>
       window.enableSpa = async () => {
         const response = await (await fetch("/api/spa")).json();
 
@@ -30,3 +43,7 @@
     </script>
   </section>
 </section>
+
+<script>
+
+</script>

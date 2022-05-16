@@ -1,0 +1,37 @@
+---
+export interface Props {
+  label: string;
+}
+
+const { label } = Astro.props as Props;
+---
+
+<style lang="scss" is:global>
+  .admin-label-control {
+    @apply px-4;
+
+    span {
+      width: 60%;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: ":";
+        display: block;
+        width: fit-content;
+        right: 1rem;
+        top: 0;
+      }
+    }
+
+    input {
+      width: 40%;
+    }
+  }
+</style>
+
+<label class="admin-label-control flex items-center">
+  <span set:text={label}></span>
+
+  <slot></slot>
+</label>
