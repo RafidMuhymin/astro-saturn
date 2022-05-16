@@ -1,0 +1,12 @@
+---
+import Label from "../../components/admin/Label.astro";
+import { spa } from "../../data/adminConfigs.json";
+---
+
+<section id="tailwind-css">
+  <h2>SPA</h2>
+
+  <form class="flex flex-col gap-3" onsubmit="updateConfig('spa', event)">
+    <button type="submit" class="submit-button">Save Changes</button>
+  </form>
+</section>

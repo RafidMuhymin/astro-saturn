@@ -1,0 +1,15 @@
+---
+import Label from "../../components/admin/Label.astro";
+import { astroConfigs } from "../../data/adminConfigs.json";
+---
+
+<section id="astro-configs">
+  <h2>Astro Config Options</h2>
+
+  <form
+    class="flex flex-col gap-3"
+    onsubmit="updateConfig('astro-configs', event)"
+  >
+    <button type="submit" class="submit-button">Save Changes</button>
+  </form>
+</section>

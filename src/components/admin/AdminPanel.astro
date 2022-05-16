@@ -1,5 +1,8 @@
 ---
 import TypographyConfigs from "../../forms/admin/TypographyConfigs.astro";
+import AstroConfigs from "../../forms/admin/AstroConfigs.astro";
+import TailwindConfigs from "../../forms/admin/TailwindConfigs.astro";
+import SpaConfigs from "../../forms/admin/SpaConfigs.astro";
 ---
 
 <section class="px-4 pb-4 w-[87.5%] bg-gray-100">
@@ -7,19 +10,11 @@ import TypographyConfigs from "../../forms/admin/TypographyConfigs.astro";
 
   <TypographyConfigs />
 
-  <section id="astro-configs">
-    <h2>Astro Config Options</h2>
-  </section>
+  <AstroConfigs />
 
-  <section id="tailwind-css">
-    <h2>Tailwind CSS Configs</h2>
-  </section>
+  <TailwindConfigs />
 
-  <section id="spa">
-    <h2>SPA</h2>
-
-    <button> Enable SPA Mode</button>
-  </section>
+  <SpaConfigs />
 </section>
 
 <script is:inline>
