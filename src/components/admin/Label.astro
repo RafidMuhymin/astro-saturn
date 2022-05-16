@@ -26,11 +26,12 @@ const { label } = Astro.props as Props;
 
     input, select {
       width: 40%;
+      @apply bg-blue-100;
     }
 
     select {
-      @apply pr-0 border-r-[0.5rem] bg-indigo-200;
       border-right-color: transparent !important;
+      @apply pr-0 border-r-[0.5rem];
     }
   }
 </style>
