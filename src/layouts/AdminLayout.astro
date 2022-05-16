@@ -3,17 +3,29 @@ import "../styles/global.scss";
 import { Spa } from "astro-spa";
 import { Font } from "astro-fonts";
 import Head from "../components/Head.astro";
-import { spa } from "../data/adminConfigs.json";
+import { spa, typography } from "../data/adminConfigs.json";
+
+const {
+  "font-family": fontFamily,
+  "google-fonts": googleFontsStatus,
+  "self-hosting": selfHostingStatus,
+} = typography;
 ---
 
 <html>
   <Head />
 
-  <Font family="Montserrat" weights={[400]} local />
+  {googleFontsStatus === "enabled" && (
+    <Font
+      family={fontFamily || "Montserrat"}
+      weights={[400]}
+      local={selfHostingStatus === "disabled" ? false : true}
+    />
+  )}
 
   <style
     define:vars={{
-      "font-family": "Montserrat",
+      "font-family": fontFamily || "Montserrat",
     }}
   >
     :root {
