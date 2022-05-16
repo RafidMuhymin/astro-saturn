@@ -5,7 +5,7 @@
     "self-hosting": "enabled"
   },
   "astroConfigs": {
-    "root": "./root",
+    "root": "./",
     "srcDir": "./src",
     "publicDir": "./public",
     "outDir": "./dist",
@@ -23,6 +23,7 @@
     "integrations": false,
     "ssr": false
   },
-  "tailwindCSS": {},
-  "spa": {}
+  "spa": {
+    "enabled": true
+  }
 }

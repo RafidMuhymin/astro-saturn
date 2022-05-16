@@ -3,10 +3,17 @@ import Label from "../../components/admin/Label.astro";
 import { spa } from "../../data/adminConfigs.json";
 ---
 
-<section id="tailwind-css">
+<section id="spa">
   <h2>SPA</h2>
 
   <form class="flex flex-col gap-3" onsubmit="updateConfig('spa', event)">
+    <Label label="SPA Mode">
+      <select name="enabled">
+        <option value="true" selected={!spa.disabled}>Enabled</option>
+        <option value="false" selected={spa.disabled}>Disabled</option>
+      </select>
+    </Label>
+
     <button type="submit" class="submit-button">Save Changes</button>
   </form>
 </section>
