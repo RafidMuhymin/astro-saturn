@@ -38,6 +38,6 @@ const fontFamily = typography["font-family"] || "Montserrat";
   <body>
     <slot></slot>
 
-    {spa && <Spa />}
+    {spa.enabled && <Spa />}
   </body>
 </html>
