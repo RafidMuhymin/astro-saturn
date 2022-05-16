@@ -13,7 +13,6 @@ const {
   publicDir = "./public",
   outDir = "./dist",
   trailingSlash = "ignore",
-  site = undefined,
   base = "./",
   format = "directory",
   host = false,
@@ -26,6 +25,8 @@ const {
   ssr = false,
   integrations = false,
 } = astroConfigs;
+
+const site = astroConfigs.site || undefined;
 
 // https://astro.build/config
 export default defineConfig({

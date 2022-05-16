@@ -10,7 +10,7 @@
     "publicDir": "./public",
     "outDir": "./dist",
     "site": null,
-    "base": null,
+    "base": "./",
     "trailingSlash": "ignore",
     "format": "directory",
     "host": false,
