@@ -1,12 +1,15 @@
 ---
 import "../styles/global.scss";
 import { Spa } from "astro-spa";
+import { Font } from "astro-fonts";
 import Head from "../components/Head.astro";
 import { spa } from "../data/adminConfigs.json";
 ---
 
 <html>
   <Head />
+
+  <Font family="Montserrat" weights={[400]} local />
 
   <style
     define:vars={{
