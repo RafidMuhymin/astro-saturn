@@ -1,34 +1,35 @@
-import type { APIContext, EndpointOutput } from "astro";
+import * as fs from "node:fs";
+import { APIRoute } from "../../types/admin/types";
+import { parseJSONRequestBody } from "../../utils/admin/utils";
 
-type APIRoute = (
-  context: APIContext
-) => EndpointOutput | Response | Promise<EndpointOutput | Response>;
-
-function streamTobuffer(stream): Promise<Buffer> {
-  return new Promise((resolve, reject) => {
-    const _buf = [];
-
-    stream.on("data", (chunk) => _buf.push(chunk));
-    stream.on("end", () => resolve(Buffer.concat(_buf)));
-    stream.on("error", (err) => reject(err));
-  });
-}
-
-async function parseJSONRequestBody(requestBody) {
-  const requestBodyBuffer = await streamTobuffer(requestBody);
-
-  const requestBodyJSON = requestBodyBuffer.toString();
-
-  return requestBodyJSON;
-}
-
-export const get: APIRoute = async () => ({ body: "" });
+export const get = async () => ({ body: "" });
 
 export const post: APIRoute = async ({ params, request }) => {
   const requestBody = await parseJSONRequestBody(request.body);
 
+  const changedConfigs = JSON.parse(requestBody);
+
+  const configPath = "./src/data/adminConfigs.json";
+
+  const adminConfigs = JSON.parse(
+    await fs.promises.readFile(configPath, "utf-8")
+  );
+
+  const updatedConfigs = {
+    ...adminConfigs,
+    ...changedConfigs,
+  };
+
+  await fs.promises.writeFile(
+    configPath,
+    JSON.stringify(updatedConfigs, null, 2)
+  );
+
   const response = {
-    body: requestBody,
+    body: JSON.stringify({
+      message: "Updated configs",
+      success: true,
+    }),
   };
 
   return response;

@@ -2,14 +2,12 @@
 import Label from "../../components/admin/Label.astro";
 ---
 
-<!-- https://google-webfonts-helper.herokuapp.com/api/fonts -->
-
-<section
+<!-- https://google-webfonts-helper.herokuapp.com/api/fonts --><section
   id="typography"
 >
   <h2>Typography</h2>
 
-  <form class="flex flex-col gap-3">
+  <form class="flex flex-col gap-3" onsubmit="updateConfig('typography', event)">
     <Label label="Google Fonts">
       <select type="text" name="google-fonts" class="input-control">
         <option value="enabled">Enabled</option>
@@ -27,5 +25,7 @@ import Label from "../../components/admin/Label.astro";
         <option value="disabled">Disabled</option>
       </select>
     </Label>
+
+    <button type="submit" class="submit-button">Save Changes</button>
   </form>
 </section>

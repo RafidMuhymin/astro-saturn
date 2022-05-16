@@ -20,18 +20,30 @@ const isInline = import.meta.env.DEV ? true : false;
   <section id="spa">
     <h2>SPA</h2>
 
-    <button onclick="enableSpa()"> Enable SPA Mode</button>
-
-    <script {isInline}>
-      window.enableSpa = async () => {
-        const response = await (await fetch("/api/spa")).json();
-
-        console.log(response);
-      };
-    </script>
+    <button> Enable SPA Mode</button>
   </section>
 </section>
 
-<script>
+<script is:inline>
+  const updateConfig = (key, event) => {
+    event.preventDefault();
 
+    const formdata = Object.fromEntries(new FormData(event.target));
+
+    fetch("/api/config", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        [key]: formdata,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
+  window.updateConfig = updateConfig;
 </script>

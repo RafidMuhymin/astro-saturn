@@ -15,3 +15,7 @@
     box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
   }
 }
+
+.submit-button {
+  @apply block mx-auto bg-blue-400 text-white px-3 py-2 mt-2 rounded-[0.25rem];
+}

@@ -1,3 +1,10 @@
 {
-  "spa": true
+  "typography": {
+    "google-fonts": "enabled",
+    "font-family": "",
+    "self-hosting": "enabled"
+  },
+  "astro-configs": {},
+  "tailwind-css": {},
+  "spa": {}
 }
