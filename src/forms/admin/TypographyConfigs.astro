@@ -1,0 +1,28 @@
+---
+import Label from "../../components/admin/Label.astro";
+---
+
+<!-- https://google-webfonts-helper.herokuapp.com/api/fonts -->
+
+<section
+  id="typography"
+>
+  <h2>Typography</h2>
+
+  <form class="flex flex-col gap-3">
+    <Label label="Google Fonts">
+      <select type="text" name="google-fonts" class="input-control">
+        <option value="enabled">Enabled</option>
+        <option value="disabled">Disabled</option>
+      </select>
+    </Label>
+
+    <Label label="Font Family">
+      <input type="text" name="font-family" class="input-control" />
+    </Label>
+
+    <Label label="Font Self-Hosting">
+      <input type="text" name="self-hosting" class="input-control" />
+    </Label>
+  </form>
+</section>
