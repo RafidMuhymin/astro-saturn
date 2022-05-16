@@ -1,25 +1,47 @@
 // @ts-check
+import { readFile } from "node:fs/promises";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
+
+const { astroConfigs } = JSON.parse(
+  await readFile("./src/data/adminConfigs.json", "utf-8")
+);
+
+const {
+  root = ".",
+  srcDir = "./src",
+  publicDir = "./public",
+  outDir = "./dist",
+  trailingSlash = "ignore",
+  site = undefined,
+  base = "./",
+  format = "directory",
+  host = false,
+  port = 3000,
+  drafts = true,
+  mode = "mdx",
+  theme = "dracula",
+  wrap = true,
+  syntaxHighlight = "shiki",
+  ssr = false,
+  integrations = false,
+} = astroConfigs;
 
 // https://astro.build/config
 export default defineConfig({
   /*
-   * Below are the default values for all the config options Astro supports.
-   * The commented out options don't have a default value.
+   * Below are all the config options supported by Astro.
    */
 
   // Top-Level Options
-  root: "." /* The directory that contains the Astro project. */,
-  srcDir: "./src" /* The directory that Astro will read the site from. */,
-  publicDir: "./public" /* The directory that contains the static assets. */,
-  outDir: "./dist" /* The directory that Astro writes the final build to. */,
+  root /* The directory that contains the Astro project. */,
+  srcDir /* The directory that Astro will read the site from. */,
+  publicDir /* The directory that contains the static assets. */,
+  outDir /* The directory that Astro writes the final build to. */,
+  site /* The final deployed URL of the site. */,
+  base /* The base path the site will be deployed to. */,
 
-  // site: "https://yourdomain.tld" /* The final deployed URL of the site. */,
-
-  // base: "/" /* The base path the site will be deployed to. */,
-
-  trailingSlash: "ignore",
+  trailingSlash,
   /*
    * Set the route matching behavior of the dev server. Choose from the following options:
    *
@@ -43,7 +65,7 @@ export default defineConfig({
 
   // Build Options
   build: {
-    format: "directory",
+    format,
     /*
      * Control the output file format of each page.
      *
@@ -63,7 +85,7 @@ export default defineConfig({
    * Function: (command) => ({ port: command === 'dev' ? 3000 : 4000 })
    */
   server: {
-    host: false,
+    host,
     /*
      * Set which network IP addresses the server should listen on (i.e. non-localhost IPs).
      *
@@ -72,24 +94,23 @@ export default defineConfig({
      * [custom-address] - expose on a network IP address at [custom-address] (ex: 192.168.0.1)
      */
 
-    port: 3000 /* The port the server should listen on. If the given port is already in use, Astro will automatically try the next available port. */,
+    port /* The port the server should listen on. If the given port is already in use, Astro will automatically try the next available port. */,
   },
 
   // Markdown Options
   markdown: {
-    drafts: false /* Whether to include draft posts in the final build. */,
-    mode: "mdx" /* Control wheater to allow components inside markdown files ('mdx') or not ('md'). */,
+    drafts /* Whether to include draft posts in the final build. */,
+    mode /* Control wheater to allow components inside markdown files ('mdx') or not ('md'). */,
 
     // Shiki Options
     shikiConfig: {
-      theme:
-        "dracula" /* The theme to use to highlight the code. Choose from Shiki's built-in themes or add your own. Check https://github.com/shikijs/shiki/blob/main/docs/themes.md */,
+      theme /* The theme to use to highlight the code. Choose from Shiki's built-in themes or add your own. Check https://github.com/shikijs/shiki/blob/main/docs/themes.md */,
       langs:
         [] /* Add custom languages. Check https://github.com/shikijs/shiki/blob/main/docs/languages.md */,
-      wrap: true /* Whether to enable word wrap to prevent horizontal scrolling */,
+      wrap /* Whether to enable word wrap to prevent horizontal scrolling */,
     },
 
-    syntaxHighlight: "shiki",
+    syntaxHighlight,
     /*
      * Which syntax highlighter to use, if any.
      *
@@ -115,7 +136,7 @@ export default defineConfig({
 
   // Experimental Options
   experimental: {
-    ssr: false /* Whether to enable experimental SSR */,
-    integrations: false /* Whether to enable experimental integrations. Applicable for non-core integrations only */,
+    ssr /* Whether to enable experimental SSR */,
+    integrations /* Whether to enable experimental integrations. Applicable for non-core integrations only */,
   },
 });
