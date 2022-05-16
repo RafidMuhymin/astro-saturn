@@ -72,12 +72,19 @@ const {
     </Label>
 
     <Label label="Require URLs to be ended with a slash">
-      <input
-        type="text"
-        name="trailingSlash"
-        class="input-control"
-        value={trailingSlash}
-      />
+      <select name="trailingSlash" class="input-control">
+        <option value="always" selected={trailingSlash === "always"}
+          >always
+        </option>
+        <option value="never" selected={trailingSlash === "never"}
+          >never
+        </option>
+        <option
+          value="ignore"
+          selected={!["always", "ignore"].includes(trailingSlash)}
+          >ignore
+        </option>
+      </select>
     </Label>
 
     <Label label="Integrations">
@@ -99,7 +106,12 @@ const {
     </Label>
 
     <Label label="Output HTML Route Format">
-      <input type="text" name="format" class="input-control" value={format} />
+      <select name="format" class="input-control">
+        <option value="file" selected={format === "file"}>file</option>
+        <option value="directory" selected={format !== "file"}
+          >directory
+        </option>
+      </select>
     </Label>
 
     <Label label="Dev Server Host">
@@ -115,7 +127,10 @@ const {
     </Label>
 
     <Label label="Markdown Mode">
-      <input type="text" name="mode" class="input-control" value={mode} />
+      <select name="mode" class="input-control">
+        <option value="mdx" selected={format !== "md"}>mdx</option>
+        <option value="md" selected={format === "md"}>md</option>
+      </select>
     </Label>
 
     <Label label="Shiki Theme">
@@ -132,7 +147,10 @@ const {
     </Label>
 
     <Label label="Enable Word Wrapping of Markdown Code Blocks">
-      <input type="text" name="wrap" class="input-control" value={wrap} />
+      <select name="wrap" class="input-control">
+        <option value="true" selected={wrap === true}>Enabled</option>
+        <option value="false" selected={wrap !== true}>Disabled</option>
+      </select>
     </Label>
 
     <Label label="Syntax Highlighter">
@@ -163,13 +181,17 @@ const {
     </Label>
 
     <Label label="Experimental SSR">
-      <input type="text" name="integrations" class="input-control" value={ssr}
-      />
+      <select name="ssr" class="input-control">
+        <option value="true" selected={ssr === true}>Enabled</option>
+        <option value="false" selected={ssr !== true}>Disabled</option>
+      </select>
     </Label>
 
     <Label label="Experimental Integrations">
-      <input type="text" name="ssr" class="input-control" value={integrations}
-      />
+      <select name="integrations" class="input-control">
+        <option value="true" selected={integrations === true}>Enabled</option>
+        <option value="false" selected={integrations !== true}>Disabled</option>
+      </select>
     </Label>
 
     <button type="submit" class="submit-button">Save Changes</button>
