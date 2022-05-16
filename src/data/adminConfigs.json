@@ -1,7 +1,7 @@
 {
   "typography": {
     "google-fonts": "enabled",
-    "font-family": "",
+    "font-family": "Montserrat",
     "self-hosting": "enabled"
   },
   "astro-configs": {},

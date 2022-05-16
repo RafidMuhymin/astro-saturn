@@ -5,11 +5,10 @@ import { Font } from "astro-fonts";
 import Head from "../components/Head.astro";
 import { spa, typography } from "../data/adminConfigs.json";
 
-const {
-  "font-family": fontFamily,
-  "google-fonts": googleFontsStatus,
-  "self-hosting": selfHostingStatus,
-} = typography;
+const { "google-fonts": googleFontsStatus, "self-hosting": selfHostingStatus } =
+  typography;
+
+const fontFamily = typography["font-family"] || "Montserrat";
 ---
 
 <html>
@@ -19,7 +18,7 @@ const {
     <Font
       family={fontFamily || "Montserrat"}
       weights={[400]}
-      local={selfHostingStatus === "disabled" ? false : true}
+      local={selfHostingStatus !== "disabled"}
     />
   )}
 

@@ -1,28 +1,48 @@
 ---
 import Label from "../../components/admin/Label.astro";
+import { typography } from "../../data/adminConfigs.json";
+
+const { "google-fonts": googleFontsStatus, "self-hosting": selfHostingStatus } =
+  typography;
+
+const fontFamily = typography["font-family"] || "Montserrat";
 ---
 
-<!-- https://google-webfonts-helper.herokuapp.com/api/fonts --><section
-  id="typography"
->
+<section id="typography">
   <h2>Typography</h2>
 
-  <form class="flex flex-col gap-3" onsubmit="updateConfig('typography', event)">
+  <form
+    class="flex flex-col gap-3"
+    onsubmit="updateConfig('typography', event)"
+  >
     <Label label="Google Fonts">
       <select type="text" name="google-fonts" class="input-control">
-        <option value="enabled">Enabled</option>
-        <option value="disabled">Disabled</option>
+        <option value="enabled" selected={googleFontsStatus !== "disabled"}
+          >Enabled
+        </option>
+        <option value="disabled" selected={googleFontsStatus === "disabled"}
+          >Disabled
+        </option>
       </select>
     </Label>
 
     <Label label="Font Family">
-      <input type="text" name="font-family" class="input-control" />
+      <input
+        type="text"
+        name="font-family"
+        class="input-control"
+        value={fontFamily}
+      />
     </Label>
 
     <Label label="Font Self-Hosting">
       <select type="text" name="self-hosting" class="input-control">
-        <option value="enabled">Enabled</option>
-        <option value="disabled">Disabled</option>
+        <option value="enabled" selected={selfHostingStatus !== "disabled"}
+          >Enabled
+        </option>
+        <option value="disabled" selected={selfHostingStatus === "disabled"}
+          >Disabled
+        </option>
       </select>
     </Label>
 

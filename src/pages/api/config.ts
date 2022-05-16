@@ -11,7 +11,8 @@ export const post: APIRoute = async ({ params, request }) => {
     const changedConfigs = JSON.parse(requestBody);
 
     const configPath = "./src/data/adminConfigs.json",
-      layoutPath = "./src/layouts/AdminLayout.astro";
+      layoutPath = "./src/layouts/AdminLayout.astro",
+      panelPath = "./src/components/admin/AdminPanel.astro";
 
     const adminConfigs = JSON.parse(
       await fs.promises.readFile(configPath, "utf-8")
@@ -28,10 +29,10 @@ export const post: APIRoute = async ({ params, request }) => {
     );
 
     // Force Astro to display changed content
-    await fs.promises.writeFile(
-      layoutPath,
-      await fs.promises.readFile(layoutPath)
-    );
+    await Promise.all([
+      fs.promises.writeFile(layoutPath, await fs.promises.readFile(layoutPath)),
+      fs.promises.writeFile(panelPath, await fs.promises.readFile(panelPath)),
+    ]);
 
     const response = {
       body: JSON.stringify({
