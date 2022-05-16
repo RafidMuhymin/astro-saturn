@@ -4,7 +4,10 @@ import Sidebar from "../components/admin/Sidebar.astro";
 import AdminPanel from "../components/admin/AdminPanel.astro";
 
 if (import.meta.env.PROD) {
-  return;
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
 }
 ---
 
