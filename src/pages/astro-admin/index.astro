@@ -1,0 +1,19 @@
+---
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import Sidebar from "../../components/admin/Sidebar.astro";
+import AdminPanel from "../../components/admin/AdminPanel.astro";
+
+if (import.meta.env.PROD) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+---
+
+<AdminLayout>
+  <main class="max-w-[1440px] mx-auto flex">
+    <Sidebar />
+    <AdminPanel />
+  </main>
+</AdminLayout>

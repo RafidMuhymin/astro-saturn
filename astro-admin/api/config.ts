@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
-import { APIRoute } from "../../types/admin/types";
-import { parseJSONRequestBody } from "../../utils/admin/utils";
+import { APIRoute } from "../../../types/admin/types";
+import { parseJSONRequestBody } from "../../../utils/admin/utils";
 
 export const get = async () => ({ body: "" });
 
@@ -59,7 +59,10 @@ export const post: APIRoute = async ({ params, request }) => {
     ]);
 
     const response = {
-      body: JSON.stringify(updatedConfigs),
+      body: JSON.stringify({
+        message: "Updated configs successfully",
+        success: true,
+      }),
     };
 
     return response;

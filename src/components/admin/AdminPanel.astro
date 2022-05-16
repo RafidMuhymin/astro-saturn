@@ -20,7 +20,7 @@ import SpaConfigs from "../../forms/admin/SpaConfigs.astro";
 
     const formdata = Object.fromEntries(new FormData(event.target));
 
-    fetch("/api/config", {
+    fetch("/astro-admin/api/config", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
