@@ -4,7 +4,25 @@
     "font-family": "Montserrat",
     "self-hosting": "enabled"
   },
-  "astroConfigs": {},
+  "astroConfigs": {
+    "root": "./root",
+    "srcDir": "./src",
+    "publicDir": "./public",
+    "outDir": "./dist",
+    "site": "",
+    "base": "",
+    "trailingSlash": "ignore",
+    "format": "directory",
+    "host": "false",
+    "port": "3000",
+    "drafts": "false",
+    "mode": "mdx",
+    "theme": "dracula",
+    "wrap": "true",
+    "syntaxHighlight": "shiki",
+    "integrations": "false",
+    "ssr": "false"
+  },
   "tailwindCSS": {},
   "spa": {}
 }

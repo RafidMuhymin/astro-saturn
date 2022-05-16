@@ -1,6 +1,26 @@
 ---
 import Label from "../../components/admin/Label.astro";
 import { astroConfigs } from "../../data/adminConfigs.json";
+
+const {
+  root,
+  srcDir,
+  publicDir,
+  outDir,
+  trailingSlash,
+  site,
+  base,
+  format,
+  host,
+  port,
+  drafts,
+  mode,
+  theme,
+  wrap,
+  syntaxHighlight,
+  ssr,
+  integrations,
+} = astroConfigs;
 ---
 
 <section id="astro-configs">
@@ -8,8 +28,150 @@ import { astroConfigs } from "../../data/adminConfigs.json";
 
   <form
     class="flex flex-col gap-3"
-    onsubmit="updateConfig('astro-configs', event)"
+    onsubmit="updateConfig('astroConfigs', event)"
   >
+    <Label label="Project Root Directory">
+      <input type="text" name="root" class="input-control" value={root} />
+    </Label>
+
+    <Label label="Source Directory">
+      <input type="text" name="srcDir" class="input-control" value={srcDir} />
+    </Label>
+
+    <Label label="Static Assets Directory">
+      <input
+        type="text"
+        name="publicDir"
+        class="input-control"
+        value={publicDir}
+      />
+    </Label>
+
+    <Label label="Output Directory">
+      <input type="text" name="outDir" class="input-control" value={outDir} />
+    </Label>
+
+    <Label label="The final deployed URL of the site">
+      <input
+        type="text"
+        name="site"
+        class="input-control"
+        value={site}
+        placeholder="https://yourdomain.tld"
+      />
+    </Label>
+
+    <Label label="The base path the site will be deployed to">
+      <input
+        type="text"
+        name="base"
+        class="input-control"
+        value={base}
+        placeholder="/"
+      />
+    </Label>
+
+    <Label label="Require URLs to be ended with a slash">
+      <input
+        type="text"
+        name="trailingSlash"
+        class="input-control"
+        value={trailingSlash}
+      />
+    </Label>
+
+    <Label label="Integrations">
+      <input
+        type="text"
+        value="Configure this in the astro.config.mjs file!"
+        disabled
+        class="input-control"
+      />
+    </Label>
+
+    <Label label="Vite Config Options">
+      <input
+        type="text"
+        value="Configure this in the astro.config.mjs file!"
+        disabled
+        class="input-control"
+      />
+    </Label>
+
+    <Label label="Output HTML Route Format">
+      <input type="text" name="format" class="input-control" value={format} />
+    </Label>
+
+    <Label label="Dev Server Host">
+      <input type="text" name="host" class="input-control" value={host} />
+    </Label>
+
+    <Label label="Dev Server Port">
+      <input type="text" name="port" class="input-control" value={port} />
+    </Label>
+
+    <Label label="Markdown Drafts">
+      <input type="text" name="drafts" class="input-control" value={drafts} />
+    </Label>
+
+    <Label label="Markdown Mode">
+      <input type="text" name="mode" class="input-control" value={mode} />
+    </Label>
+
+    <Label label="Shiki Theme">
+      <input type="text" name="theme" class="input-control" value={theme} />
+    </Label>
+
+    <Label label="Custom Shiki Languages">
+      <input
+        type="text"
+        value="Configure this in the astro.config.mjs file!"
+        disabled
+        class="input-control"
+      />
+    </Label>
+
+    <Label label="Enable Word Wrapping of Markdown Code Blocks">
+      <input type="text" name="wrap" class="input-control" value={wrap} />
+    </Label>
+
+    <Label label="Syntax Highlighter">
+      <input
+        type="text"
+        name="syntaxHighlight"
+        class="input-control"
+        value={syntaxHighlight}
+      />
+    </Label>
+
+    <Label label="Remark Plugins">
+      <input
+        type="text"
+        value="Configure this in the astro.config.mjs file!"
+        disabled
+        class="input-control"
+      />
+    </Label>
+
+    <Label label="Rehype Plugins">
+      <input
+        type="text"
+        value="Configure this in the astro.config.mjs file!"
+        disabled
+        class="input-control"
+      />
+    </Label>
+
+    <Label label="Experimental SSR">
+      <input type="text" name="integrations" class="input-control" value={ssr}
+      />
+    </Label>
+
+    <Label label="Experimental Integrations">
+      <input type="text" name="ssr" class="input-control" value={integrations}
+      />
+    </Label>
+
     <button type="submit" class="submit-button">Save Changes</button>
   </form>
 </section>

@@ -34,6 +34,10 @@ const { label } = Astro.props as Props;
       border-right-color: transparent !important;
       @apply pr-0 border-r-[0.5rem];
     }
+
+    input:disabled {
+      @apply bg-gray-300 text-[0.75rem];
+    }
   }
 </style>
 
